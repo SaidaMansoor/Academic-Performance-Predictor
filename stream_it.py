@@ -6,6 +6,8 @@ import joblib
 
 stream.title("Student Performance Predictor")
 stream.write('Enter the following details to predict performance:')
+stream.write(f"API URL: https://your-new-ngrok-url.ngrok-free.app/alone2")
+
 
 # Input fields
 hours_studied = stream.number_input("Hours Studied", min_value=0, step=1)
@@ -26,7 +28,7 @@ if stream.button("Predict Performance"):
     }
 
     # Send request to FastAPI
-    response = requests.post("https://a3e3-106-222-217-190.ngrok-free.app/alone2", json=data)
+    response = requests.post("https://0fed-106-222-217-190.ngrok-free.app/alone2", json=data)
 
     
     # Show response
