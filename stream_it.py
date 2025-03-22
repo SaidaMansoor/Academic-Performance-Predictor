@@ -26,7 +26,7 @@ if stream.button("Predict Performance"):
     }
 
     # Send request to FastAPI
-    response = requests.post("http://127.0.0.1:8000/alone2", json=data)
+    response = requests.post("https://a3e3-106-222-217-190.ngrok-free.app/alone2", json=data)
 
     
     # Show response

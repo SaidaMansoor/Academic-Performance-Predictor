@@ -48,3 +48,5 @@ async def student_performance(request:Request):
         ]])
         
         return{'Performance Index': int(x[0])}  # Return first value
+    
+    print("Received data:", data)
