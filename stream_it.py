@@ -6,7 +6,6 @@ import joblib
 
 stream.title("Student Performance Predictor")
 stream.write('Enter the following details to predict performance:')
-stream.write(f"API URL: https://your-new-ngrok-url.ngrok-free.app/alone2")
 
 
 # Input fields
