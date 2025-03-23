@@ -3,17 +3,26 @@ import numpy as np
 import pickle
 import joblib
 
-st.title("Student Performance Predictor")
-st.write('Enter the following details to predict performance:')
-st.write(f"API URL: https://your-new-ngrok-url.ngrok-free.app/alone2")
+st.title("Student's Performance Checker")
 
+# Load model
+@st.cache_resource  # This caches the model loading
+def load_model():
+    file = open('performance.pkl', 'rb')
+    return joblib.load(file)
 
-# Input fields
-hours_studied = st.number_input("Hours Studied", min_value=0, step=1)
-previous_scores = st.number_input("Previous Scores", min_value=0, max_value=100, step=1)
-sleep_hours = st.number_input("Sleep Hours", min_value=0, step=1)
-sample_paper = st.number_input("Sample Paper Attempted", min_value=0, step=1)
-extra_activity = st.radio("Did extra practice?", ["Yes", "No"])
+model = load_model()
+
+# Create input fields
+hr_std = st.number_input("Studied hour", min_value=0)
+pr_scr = st.number_input("Previous score", min_value=0, max_value=100)
+hr_slp = st.number_input("Hour sleep", min_value=0)
+sp_ppr = st.number_input("No. of sample paper solved", min_value=0)
+activi = st.radio('Activity',['Yes','No'])
+
+# Convert radio button to numeric
+act_num_1 = 1 if activi == "Yes" else 0
+act_num_0 = 0 if activi == "No" else 1
 
 # Make prediction
 if st.button("Check Performance"):
