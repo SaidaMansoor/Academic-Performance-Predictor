@@ -48,10 +48,10 @@ except Exception as e:
 
 # Collect user input
 name = st.text_input("Your Name")
-hr_std = st.number_input("Studied hour")
-pr_scr = st.number_input("Previous score")
-hr_slp = st.number_input("Sleep hours")
-sp_ppr = st.number_input("No. of sample paper solved")
+hr_std = st.number_input("Studied hour", step=1.0)
+pr_scr = st.number_input("Previous score", step=1.0)
+hr_slp = st.number_input("Sleep hours", step=1.0)
+sp_ppr = st.number_input("No. of sample paper solved", step=1.0)
 activi = st.radio('Activity', ['Yes', 'No'])
 
 act_num_1 = 1 if activi == "Yes" else 0
